@@ -1,9 +1,9 @@
-class Footer{
-    create(){
+class Footer {
+    create() {
         this.element = document.createElement('footer')
         this.element.classList.add('footer')
-        
-        this.element.innerHTML=`
+
+        this.element.innerHTML = `
         <div class="container_footer">
         <div class = "container_footer__logo">
         <a href="/">
@@ -21,7 +21,7 @@ class Footer{
         return this.element
 
     }
-    init(){
+    init() {
 
         return this.create()
     }

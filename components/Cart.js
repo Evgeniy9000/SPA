@@ -1,17 +1,17 @@
-function CreateCart(){  
-   
-  this.create = (basketData) =>{
+function CreateCart() {
+
+  this.create = (basketData) => {
     this.element = document.createElement('div')
     this.element.classList.add('cart_wrapper')
 
-    if(basketData.length == 0){
-      this.element.innerHTML=`<h1>Корзина  пуста</h1>`
+    if (basketData.length == 0) {
+      this.element.innerHTML = `<h1>Корзина  пуста</h1>`
       console.log(this.element.innerHTML)
-    }else{
-      this.list=''
+    } else {
+      this.list = ''
       console.log(basketData)
       this.totalPrice = 0
-      this.element.innerHTML= " "
+      this.element.innerHTML = " "
 
       basketData.forEach(basketProduct => {
         this.list += `<tr>
@@ -21,10 +21,10 @@ function CreateCart(){
                       </tr>            
         
         `
-        this.totalPrice += basketProduct.price*basketProduct.count
-      
+        this.totalPrice += basketProduct.price * basketProduct.count
+
       });
-      this.element.innerHTML=`<div class='basket'>
+      this.element.innerHTML = `<div class='basket'>
                             <div class='basket__close'><i class="fa fa-times" aria-hidden="true"></i></div>
                             <table>${this.list}
                             <tr>
@@ -34,17 +34,17 @@ function CreateCart(){
                             </tr></table>
                             </div>
       `
-    }  
- 
+    }
+
     return this.element
   }
 
   this.init = () => {
     let basketData = JSON.parse(localStorage.getItem('basket')) || []
-   return this.create(basketData)
+    return this.create(basketData)
 
   }
-    
+
 
 }
 const cart = new CreateCart()

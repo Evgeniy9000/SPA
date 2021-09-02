@@ -1,7 +1,5 @@
-
-
-class Header{
-    create (navModule){
+class Header {
+    create(navModule) {
         this.element = document.createElement('header')
         this.element.classList.add('header')
 
@@ -16,19 +14,19 @@ class Header{
                                     <div class="header_counter"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
                                                               
                                 </div>`
-                    return this.element            
+        return this.element
 
     }
-    getNav(){
+    getNav() {
         return import('./Nav.js')
-        .then(nav => {
-            let navModule = nav.default
-            
-           return this.create(navModule)
-        })
+            .then(nav => {
+                let navModule = nav.default
+
+                return this.create(navModule)
+            })
 
     }
-    init(){
+    init() {
         return this.getNav()
 
     }
